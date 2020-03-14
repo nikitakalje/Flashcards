@@ -6,8 +6,7 @@
 ### App Walk-though
 `TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
-http://g.recordit.co/YTu8lpMmun.gif
-
+http://g.recordit.co/fDF3kwuYfx.gif
 
 ## Required
 - [ x] User can browse through multiple flashcards

@@ -68,8 +68,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
+        if(FrontLabel.isHidden==true)
+        {
+            FrontLabel.isHidden=false;
+            BackLabel.isHidden=true;
+        }
+        else{
+            FrontLabel.isHidden=true;
+            BackLabel.isHidden=false;
+        }
         
-        FrontLabel.isHidden=true;
     }
     func updateFlashcard(question: String, answer: String)
     {
@@ -86,6 +94,7 @@ class ViewController: UIViewController {
         currentIndex=flashcards.count-1
         print("Our current index is \(currentIndex)")
         
+
         //Update buttons
         updateNextPrevButtons()
         
