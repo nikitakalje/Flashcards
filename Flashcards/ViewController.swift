@@ -44,15 +44,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet weak var card: UIView!
     @IBAction func didTapOnPrev(_ sender: Any) {
         //Decrease current index
         currentIndex = currentIndex - 1
         
         //Update labels
-        updateLabels()
+       // updateLabels()
         
         //Update buttons
         updateNextPrevButtons()
+        
+        //just added
+        animateCardOutPrev()
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
@@ -61,14 +65,21 @@ class ViewController: UIViewController {
         currentIndex = currentIndex + 1
         
         //Update labels
-        updateLabels()
+        //updateLabels()
         
         //Update buttons
         updateNextPrevButtons()
+        
+        animateCardOut()
     }
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        if(FrontLabel.isHidden==true)
+        flipFlashcard()
+        
+    }
+    func flipFlashcard()
+    {
+       /* if(FrontLabel.isHidden==true)
         {
             FrontLabel.isHidden=false;
             BackLabel.isHidden=true;
@@ -76,7 +87,67 @@ class ViewController: UIViewController {
         else{
             FrontLabel.isHidden=true;
             BackLabel.isHidden=false;
-        }
+        }*/
+
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            //self.FrontLabel.isHidden = true
+            
+            if(self.FrontLabel.isHidden==true)
+            {
+                self.FrontLabel.isHidden=false;
+                self.BackLabel.isHidden=true;
+            }
+            else{
+                self.FrontLabel.isHidden=true;
+                self.BackLabel.isHidden=false;
+            }
+        })
+
+    }
+    func animateCardOut() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+           // self.animateCardIn()
+            
+            self.updateLabels()
+            
+            self.animateCardIn()
+        })
+    }
+    
+    func animateCardIn() {
+        
+        //start on the right side (don't animate this)
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        //animate card going back to its original position
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity
+        })
+        
+    }
+    func animateCardOutPrev() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }, completion: { finished in
+           // self.animateCardIn()
+            
+            self.updateLabels()
+            
+            self.animateCardInPrev()
+        })
+    }
+    
+    func animateCardInPrev() {
+        
+        //start on the right side (don't animate this)
+        card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        
+        //animate card going back to its original position
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity
+        })
         
     }
     func updateFlashcard(question: String, answer: String)

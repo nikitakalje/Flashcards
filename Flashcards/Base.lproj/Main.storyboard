@@ -43,31 +43,30 @@
                                     <outletCollection property="gestureRecognizers" destination="oOp-5W-M6c" appends="YES" id="ERZ-Bx-fPQ"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-PH-Rdl">
-                                <rect key="frame" x="173" y="802" width="68" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-pW-wM0">
+                                <rect key="frame" x="42" y="808" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <segue destination="1KE-Cc-yPZ" kind="presentation" id="ybV-Wn-Wfo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-pW-wM0">
-                                <rect key="frame" x="46" y="816" width="56" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Prev"/>
+                                <state key="normal" image="arrowLeft"/>
+                                <state key="disabled" image="arrowLeftDisabled"/>
                                 <connections>
                                     <action selector="didTapOnPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vl3-cD-lzg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-wg-aQw">
-                                <rect key="frame" x="335" y="815" width="59" height="47"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-wg-aQw">
+                                <rect key="frame" x="333" y="807" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" image="arrowRight"/>
+                                <state key="disabled" image="arrowRightDisabled"/>
                                 <connections>
                                     <action selector="didTapOnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHz-X7-2nv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-PH-Rdl">
+                                <rect key="frame" x="196" y="807" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="addButton"/>
+                                <connections>
+                                    <segue destination="1KE-Cc-yPZ" kind="presentation" id="ybV-Wn-Wfo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,6 +76,7 @@
                     <connections>
                         <outlet property="BackLabel" destination="HXe-Gk-eVR" id="hjJ-Ke-3wd"/>
                         <outlet property="FrontLabel" destination="jAq-a7-VNc" id="8mc-xI-Hmv"/>
+                        <outlet property="card" destination="5RE-ys-xMe" id="yq5-RU-wrz"/>
                         <outlet property="nextButton" destination="ydG-wg-aQw" id="4pa-1D-Tcl"/>
                         <outlet property="prevButton" destination="wg5-pW-wM0" id="vTV-Cy-z7g"/>
                     </connections>
@@ -154,4 +154,11 @@
             <point key="canvasLocation" x="995.65217391304361" y="124.55357142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addButton" width="64" height="64"/>
+        <image name="arrowLeft" width="64" height="64"/>
+        <image name="arrowLeftDisabled" width="64" height="64"/>
+        <image name="arrowRight" width="64" height="64"/>
+        <image name="arrowRightDisabled" width="64" height="64"/>
+    </resources>
 </document>
